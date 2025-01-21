@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/jpg" href="Captura5-1.png" />
+    <style>
+      .container-flex {
+        background-color: lightyellow;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .item {
+        width: 50px;
+        height: 50px;
+        border-radius: 3px;
+        border: 1px dashed blue;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script>
+      function inicializar() {
+        let divContenedor = document.querySelectorAll("#contenedor div.item");
+        let posiciones = [];
+        divContenedor.forEach((element) => {
+          console.log(element.innerHTML);
+          let geometria = element.getBoundingClientRect();
+          console.log("x: " + geometria.left + " y: " + geometria.top);
+          console.log("xf: " + geometria.right + " yf: " + geometria.bottom);
+          posiciones.push(geometria);
+        });
+
+        let margenes = [];
+        for (let i = 0; i < posiciones.length; i++) {
+          if (i === 0) {
+            margenes.push(posiciones[i].left);
+          } else {
+            if (i === posiciones.length - 1) {
+              let geometriadiv =
+                divContenedor[0].parentNode.getBoundingClientRect();
+              margenes.push(geometriadiv.right - posiciones[i].right);
+            } else {
+              margenes.push(posiciones[i].left - posiciones[i - 1].right);
+            }
+          }
+        }
+        console.log(margenes);
+
+        if (
+          margenes[0] * 2 === margenes[1] &&
+          margenes[5] * 2 === margenes[1]
+        ) {
+          console.log("around");
+        }
+
+        if (margenes[0] === 0 && margenes[5] === 0) {
+          console.log("betwen");
+        }
+
+        if (
+          Math.round(margenes[0] === margenes[1]) &&
+          Math.round(margenes[2] === margenes[3])
+        ) {
+          console.log("betwen");
+        }
+
+        if (margenes[0] === 0 && margenes[1] === 0) {
+          console.log("first");
+        }
+
+        if (margenes[5] === 0 && margenes[4] === 0) {
+          console.log("ebd");
+        }
+
+        if (margenes[0] > 0 && margenes[5] > 0 && margenes[1] === 0) {
+          console.log("centar");
+        }
+
+        let contenedor = document.getElementById("contenedor");
+        let estilo = window.getComputedStyle(contenedor);
+        console.log(estilo.justifyContent);
+
+        contenedor.addEventListener("mousedown", down);
+        contenedor.addEventListener("mouseup", up);
+      }
+
+      let cY = 0;
+      let cYfinal = 0;
+      let pulsado = false;
+
+      function down(event) {
+        let contenedor = document.getElementById("contenedor");
+        if (event.target.parentNode != contenedor) return;
+        cY = event.pageX;
+        pulsado = true;
+
+        //contenedor.style.justifyContent = "flex-start";
+      }
+
+      function up(event) {
+        if (!pulsado) return;
+        pulsado = false;
+
+        let contenedor = document.getElementById("contenedor");
+
+        if (event.pageX > cY) {
+          contenedor.style.justifyContent = "flex-end";
+        } else {
+          contenedor.style.justifyContent = "flex-start";
+        }
+
+        let windowWh = parseFloat(window.getComputedStyle(contenedor).width);
+        if (event.pageX > windowWh / 3 && event.pageX < (windowWh / 3) * 2) {
+          contenedor.style.justifyContent = "center";
+        }
+
+        //
+      }
+      /********** DOMContentLoaded ***********************/
+      document.addEventListener("DOMContentLoaded", inicializar);
+    </script>
+  </head>
+  <body>
+    <div id="contenedor" class="container-flex">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+    </div>
+
+    <br /><br /><br /><br /><br />
+    <div id="resultado">aquí aparece el resultado de tus deducciones</div>
+  </body>
+</html>

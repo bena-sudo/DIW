@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="16_corazon.css"
+    />
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const corazon = document.querySelector(".corazon");
+        const animaciones = ["rotardos", "palpitar", "girar"];
+        let iterationCount = 0;
+
+        corazon.addEventListener("animationiteration", () => {
+          iterationCount++;
+
+          if (iterationCount % 2 === 0) {
+            const currentAnimation = event.animationName;
+            let nextAnimation = "";
+            for (let key in animaciones) {
+              if (animaciones[key] === currentAnimation) {
+                if (key == animaciones.length){
+                  key=0
+                }else{
+                  //traure el modul per a clacular la key
+                  key = +1;
+                }
+                console.log(animaciones[key]);
+
+                nextAnimation = animaciones[key];
+              }
+            }
+            corazon.style.animation = `${nextAnimation}  3s infinite`;
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="contendor">
+      <div class="corazon"></div>
+    </div>
+  </body>
+</html>

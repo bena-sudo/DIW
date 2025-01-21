@@ -1,0 +1,93 @@
+.divFinal {
+  height: 80vh;
+}
+
+.descripcion {
+  border: solid 1px black;
+  padding: 0.5em;
+  margin: 1em;
+}
+
+.gc {
+  background-color: lightpink;
+  margin: 1em;
+  display: grid;
+  column-gap: 5px;
+  row-gap: 5px;
+  width: 70vw;
+  margin: auto;
+}
+
+.gc div {
+  border: 1px solid black;
+  border-radius: 3px;
+  margin: 2px;
+}
+
+:nth-child(1 of .gc) {
+  background-color: lightseagreen;
+  grid-template-columns: auto auto auto;
+  text-align: center;
+}
+:nth-child(1 of .gc) :nth-child(2),
+:nth-child(2 of .gc) :nth-child(2) {
+  background-color: yellow;
+}
+:nth-child(1 of .gc) :nth-child(3),
+:nth-child(2 of .gc) :nth-child(3) {
+  background-color: cyan;
+}
+:nth-child(1 of .gc) :nth-child(4),
+:nth-child(2 of .gc) :nth-child(4) {
+  background-color: white;
+  grid-column: 3;
+}
+:nth-child(1 of .gc) :nth-child(5),
+:nth-child(2 of .gc) :nth-child(5) {
+  background-color: blue;
+  grid-column: 3;
+}
+
+:nth-child(2 of .gc) {
+  background-color: lightseagreen;
+  grid-template-columns: auto auto auto;
+  text-align: center;
+  grid-auto-flow: dense;
+}
+
+:nth-child(3 of .gc) {
+  background-color: lightseagreen;
+  grid-template-columns: auto auto auto;
+  text-align: center;
+}
+:nth-child(3 of .gc) :nth-child(1),
+:nth-child(4 of .gc) :nth-child(1) {
+  background-color: yellow;
+  grid-row: 1 / span 2;
+}
+:nth-child(3 of .gc) :nth-child(3),
+:nth-child(4 of .gc) :nth-child(3) {
+  background-color: yellow;
+  grid-column: 2;
+  grid-row: 2 / span 2;
+}
+
+:nth-child(3 of .gc) :nth-child(4),
+:nth-child(4 of .gc) :nth-child(4) {
+  background-color: yellow;
+  grid-column: 1;
+  grid-row: 3 / span 2;
+}
+
+:nth-child(3 of .gc) :nth-child(7),
+:nth-child(4 of .gc) :nth-child(7) {
+  background-color: white;
+  grid-row: 2;
+}
+
+:nth-child(4 of .gc) {
+  background-color: lightseagreen;
+  grid-template-columns: auto auto auto;
+  text-align: center;
+  grid-auto-flow: dense;
+}

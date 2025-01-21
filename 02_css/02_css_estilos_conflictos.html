@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>02_css_estilos_conflictos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="02_css_estilos_conflictos.css"
+    />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <p>Soy un p, sin clase sin identificador</p>
+    <p class="uno">Soy un p, con clase sin identificador</p>
+    <p id="dos" class="uno">Soy un p, con clase e identificador</p>
+    <p id="tres" class="uno" style="background-color: lightyellow">
+      Soy in p, con clase e identificador, con estilo incrustado!
+    </p>
+  </body>
+</html>

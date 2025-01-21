@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="va_ES">
+  <head>
+    <meta charset="utf-8" />
+
+    <style>
+      /**********  PON TUS ESTILOS AQU� ****************/
+      .gc {
+        display: grid;
+        background-color: lightpink;
+        grid-template-columns: auto auto auto;
+        margin: 2em;
+        column-gap: 1px;
+        row-gap: 1px;
+      }
+
+      .gc div {
+        border: 1px solid black;
+        border-radius: 3px;
+      }
+    </style>
+
+    <script>
+      const totalContenedorsGrid = 14;
+      const totalCeldasGrid = 8;
+
+      let contenidoCeldas = [
+        { tabla: 5, celda: 5, contenido: "supercalifragilítoc" },
+        { tabla: 6, celda: 5, contenido: "supercalifragilítoc" },
+        {
+          tabla: 9,
+          celda: 4,
+          contenido: "mucho contenido a base de varias apalabras . ohhhh! ",
+        },
+        { tabla: 9, celda: 5, contenido: "contenido" },
+        {
+          tabla: 10,
+          celda: 4,
+          contenido:
+            "mucho contenido supercalifragilisticoespirialidoso apalabras . ohhhh! ",
+        },
+        { tabla: 10, celda: 5, contenido: "contenido" },
+
+        { tabla: 11, celda: 4, contenido: "Renglón de varias palabras " },
+        { tabla: 11, celda: 5, contenido: "Renglón de varias palabras" },
+
+        { tabla: 12, celda: 4, contenido: "Renglón de varias palabras" },
+        {
+          tabla: 12,
+          celda: 5,
+          contenido:
+            "Renglón de contdsfsdfsfsdfsfsenidosfsdfsdfsdfsdfsfsdflroooo",
+        },
+        { tabla: 12, celda: 6, contenido: "hola nene eres listo , beer" },
+
+        { tabla: 13, celda: 4, contenido: "Renglón de varias palabras" },
+        {
+          tabla: 13,
+          celda: 5,
+          contenido:
+            "Renglón de contdsfsdfsfsdfsfsenidosfsdfsdfsdfsdfsfsdflroooo",
+        },
+        { tabla: 13, celda: 6, contenido: "hola nene eres listo , beer" },
+      ];
+
+      function generarGrids() {
+        for (let i = 1; i <= totalContenedorsGrid; i++) {
+          const elementoGrid = document.createElement("div");
+          elementoGrid.className = "gc";
+          const elementTitulo = document.createElement("p");
+          elementTitulo.innerText = "TABLA " + i;
+          for (let j = 1; j <= totalCeldasGrid; j++) {
+            const elementoCelda = document.createElement("div");
+            elementoCelda.innerText = j + " - " + String.fromCharCode(j + 64);
+            for (let x = 0; x < contenidoCeldas.length; x++) {
+              const element = contenidoCeldas[x];
+
+              if (element.tabla === i && element.celda === j)
+                elementoCelda.innerText += element.contenido;
+              console.log(i);
+            }
+            elementoGrid.appendChild(elementoCelda);
+          }
+          document.body.append(elementTitulo);
+          document.body.append(elementoGrid);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", generarGrids);
+    </script>
+  </head>
+  <body>
+    <div id="unDiv">
+      div inicial. Esta actividad tan sólo pretende establecer la generación
+      automática por código de una serie de grids, con un número de celdas para
+      cada grid. Adicionalmente se genera un texto concreto en algunas de las
+      celdas de tablas concretas.
+    </div>
+  </body>
+</html>

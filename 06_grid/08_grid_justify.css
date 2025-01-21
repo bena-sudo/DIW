@@ -1,0 +1,41 @@
+.descripcion {
+  border: solid 1px black;
+  padding: 0.5em;
+  margin: 1em;
+}
+
+body{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.gc {
+  background-color: lightblue;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin: 1em;
+}
+
+.gc div {
+  border: 1px solid black;
+  border-radius: 3px;
+  margin: 2px;
+}
+
+:nth-child(1 of .gc) {
+  display: grid;
+}
+
+:nth-child(1 of .gc) {
+  width: max-content;
+}
+
+:nth-child(11 of .gc) {
+  width: 100%;
+  height: 20vh;
+  align-content: end;
+  width: max-content;
+}
+

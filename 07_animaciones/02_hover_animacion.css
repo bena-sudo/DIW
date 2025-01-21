@@ -1,0 +1,56 @@
+body {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.espaciador {
+  height: 10em;
+}
+.box {
+  background-color: salmon;
+}
+.box:hover {
+  background-color: red;
+  height: 10em;
+  width: 100%;
+}
+
+.box2 {
+  background-color: salmon;
+  outline: 5px solid blue;
+  transition-duration: 10s;
+  width: 50%;
+}
+
+.box2:hover {
+  background-color: red;
+  height: 10em;
+  width: 80%;
+  outline: 2em solid green;
+  border: 8px dashed black;
+  font-size: 2em;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.box3 {
+    background-color: salmon;
+    outline: 5px solid blue;
+    transition-property: width, background-color;
+    transition-duration: 10s, 1s;
+    width: 50%;
+  }
+  
+  .box3:hover {
+    background-color: red;
+    
+    width: 80%;
+    outline: 2em solid green;
+    border: 8px dashed black;
+    font-size: 2em;
+    font-family: "Courier New", Courier, monospace;
+    transition-property: width, background-color;
+    transition-duration: 1s, 10s;
+  }

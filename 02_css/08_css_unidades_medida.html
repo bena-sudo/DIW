@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="va_ES">
+  <head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" type="text/css" href="08_css_unidades_medida.css" />
+
+    <style></style>
+
+    <script>
+      /* PON TUS VARIABLES JS AQU� */
+      let elementJustificar;
+      let posXDown;
+
+      function pagina() {
+        let divInfo = document.getElementById("info");
+        divInfo.innerHTML = `
+          <div id="info">
+            <p>DevicePixelRatio: ${window.devicePixelRatio}</p>
+            <p>Height: ${window.innerHeight}</p>
+            <p>Width: ${window.innerWidth}</p>
+            <p>Height: ${window.outerHeight}</p>
+            <p>VisualPort: ${window.window.visualViewport.height}</p>
+            <div></div>
+          </div>
+        `;
+      }
+
+      /************ FUNCI�N INICIALIZAR *******************/
+      function inicializar() {
+        window.addEventListener("resize", pagina);
+        pagina();
+      }
+
+      /********** DOMContentLoaded ***********************/
+      document.addEventListener("DOMContentLoaded", inicializar);
+    </script>
+  </head>
+  <body>
+    <div id="info">Hola</div>
+  </body>
+</html>

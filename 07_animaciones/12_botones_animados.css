@@ -1,0 +1,188 @@
+:root {
+  --fondo: grey;
+  --texto: orange;
+  --primer: pink;
+}
+
+body {
+  margin: 0%;
+  background-color: var(--fondo);
+  font-family: sans-serif;
+}
+
+h1,
+h3 {
+  color: var(--texto);
+}
+
+.contendor {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button {
+  width: 200px;
+  padding: 0.5em;
+  margin: 05em;
+  color: var(--texto);
+  border: 2px solid white;
+  position: relative;
+  font-size: 1em;
+  background: none;
+}
+
+.fill {
+  overflow: hidden;
+  position: relative;
+  transition-duration: 3s;
+}
+
+.fill::before {
+  content: "";
+  background-color: var(--texto);
+  color: black;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: -100%;
+  top: 0%;
+  transition-duration: 3s;
+  z-index: -1;
+}
+
+.fill:hover {
+  color: black;
+}
+
+.fill:hover::before {
+  transform: translateX(100%);
+}
+
+.carlos {
+  position: relative;
+  transition-duration: 3s;
+}
+
+.carlos::before {
+  content: "";
+  background-color: var(--texto);
+  color: black;
+  width: 90%;
+  height: 90%;
+  margin-left: 5%;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  transition-duration: 3s;
+  z-index: -1;
+  transform: rotateX(90deg);
+}
+
+.carlos:hover {
+  color: black;
+}
+
+.carlos:hover::before {
+  transform: rotateX(0deg);
+}
+
+.carlos::after {
+  content: "";
+  background-color: var(--texto);
+  color: black;
+  width: 90%;
+  height: 100%;
+  margin-left: 5%;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  transition-duration: 3s;
+  z-index: -1;
+  transform: rotateY(90deg);
+  box-shadow: 0px 10px 20px #888888;
+}
+
+.carlos:hover::after {
+  transform: rotateY(0deg);
+}
+
+.pedro {
+  overflow: hidden;
+  position: relative;
+  transition-duration: 3s;
+}
+
+.pedro::before {
+  content: attr(micontenido);
+  background-color: var(--texto);
+  color: black;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: -100%;
+  top: 0%;
+  transition-duration: 3s;
+}
+
+.pedro:hover {
+  color: black;
+}
+
+.pedro:hover::before {
+  transform: translateX(100%);
+}
+
+.jose {
+  overflow: hidden;
+  position: relative;
+  transition-duration: 3s;
+}
+
+.jose::before {
+  content: "";
+  background-color: white;
+  width: 3px;
+  height: 350%;
+  position: absolute;
+  left: -100%;
+  top: 0%;
+  rotate: -10deg;
+  transition-duration: 3s;
+  -webkit-box-shadow: 0px 0px 29px 36px rgba(255, 255, 255, 0.6);
+  -moz-box-shadow: 0px 0px 29px 36px rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 0px 29px 36px rgba(255, 255, 255, 0.6);
+}
+
+.jose:hover::before {
+  transform: translateX(420px);
+}
+
+.manolo {
+  overflow: hidden;
+  position: relative;
+  transition-duration: 3s;
+}
+
+
+
+.manolo:hover {
+  color: black;
+}
+
+.manolo:hover::before {
+  transform: translateX(100%);
+
+  content: "";
+  background-color: var(--texto);
+  color: black;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  transition-duration: 3s;
+}

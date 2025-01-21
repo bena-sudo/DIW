@@ -1,0 +1,39 @@
+:root{
+    --paddin:2em;
+}
+
+body{
+    padding: 0px;
+    margin: 0px;
+}
+
+.container{
+    border: 2px dotted red;
+    padding: var(--paddin);
+}
+
+.move{
+    background-color: red;
+    color: white;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 5s;
+}
+
+.container:hover .move{
+    background-color: green;
+    transform: translateX(600px);
+}
+
+.container2{
+    border: 2px dotted red;
+    padding: 2em;
+}
+
+.container2:hover .move{
+    background-color: green;
+    transform: translateX(calc(100vw - 100% - var(--paddin) * 2 - 4px));
+}

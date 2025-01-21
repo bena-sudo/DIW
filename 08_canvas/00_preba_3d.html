@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Canvas Paisaje 3D</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+      canvas {
+        border: 1px solid black;
+        display: block;
+        margin: 20px auto;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const canvas = document.getElementById("dibujoCanvas");
+        if (canvas.getContext) {
+          const ctx = canvas.getContext("2d");
+
+          // Cielo con degradado
+          const skyGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+          skyGradient.addColorStop(0, "#87CEEB"); // Azul claro
+          skyGradient.addColorStop(1, "#FFFFFF"); // Blanco
+          ctx.fillStyle = skyGradient;
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+          // Sol con sombras
+          ctx.beginPath();
+          ctx.arc(700, 100, 50, 0, Math.PI * 2, true);
+          ctx.fillStyle = "yellow";
+          ctx.fill();
+          ctx.shadowColor = "rgba(0,0,0,0.5)";
+          ctx.shadowBlur = 30;
+
+          // Montañas con perspectiva y sombreado
+          ctx.shadowBlur = 0; // Eliminar sombra del sol
+          const drawMountain = (x1, y1, x2, y2, x3, y3, color, shadow) => {
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.lineTo(x3, y3);
+            ctx.closePath();
+            ctx.fillStyle = color;
+            ctx.fill();
+
+            if (shadow) {
+              ctx.fillStyle = shadow;
+              ctx.fill();
+            }
+          };
+
+          // Montaña principal
+          drawMountain(200, 400, 400, 150, 600, 400, "#556B2F", "#6B8E23");
+
+          // Montaña secundaria más lejos
+          drawMountain(500, 400, 650, 250, 800, 400, "#6B8E23", "#7CFC00");
+
+          // Campo con líneas de perspectiva
+          ctx.fillStyle = "#32CD32";
+          ctx.fillRect(0, 400, canvas.width, 200);
+          ctx.strokeStyle = "#228B22";
+          for (let i = 0; i < canvas.width; i += 50) {
+            ctx.beginPath();
+            ctx.moveTo(i, 400);
+            ctx.lineTo(canvas.width / 2, canvas.height);
+            ctx.stroke();
+          }
+
+          // Árbol con efecto de profundidad
+          const drawTree = (x, y, scale) => {
+            ctx.fillStyle = "#8B4513";
+            ctx.fillRect(x, y, 20 * scale, 50 * scale);
+
+            ctx.beginPath();
+            ctx.arc(x + 10 * scale, y - 10 * scale, 30 * scale, 0, Math.PI * 2, true);
+            ctx.fillStyle = "#228B22";
+            ctx.fill();
+          };
+
+          drawTree(100, 350, 1); // Árbol cercano
+          drawTree(300, 380, 0.7); // Árbol más pequeño y más lejos
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <canvas id="dibujoCanvas" width="800" height="600"></canvas>
+  </body>
+</html>

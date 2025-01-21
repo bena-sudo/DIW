@@ -1,0 +1,26 @@
+body {
+  background-color: white;
+}
+div {
+  width: 400px;
+  height: 300px;
+}
+.azul {
+  background-color: lightblue;
+}
+.rosa {
+  background-color: lightcoral;
+}
+.verde {
+  background-color: lightgreen;
+  border: 1px black solid;
+}
+.naranja {
+  background-color: orange;
+}
+.salmon {
+  background-color: lightsalmon;
+}
+.gris {
+  background-color: lightgray;
+}

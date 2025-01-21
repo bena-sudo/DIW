@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="va_ES">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="05_grid_items.css" />
+
+    <script>
+      const totalContenedorsGrid = 1;
+      const totalCeldasGrid = 8;
+
+      let contenidoDescripcion = ["item con"];
+      let contenidoCeldas = [];
+
+      function generarGrids() {
+        for (let i = 1; i <= totalContenedorsGrid; i++) {
+          const elementoGrid = document.createElement("div");
+          elementoGrid.className = "gc";
+          const elementTitulo = document.createElement("h3");
+          elementTitulo.innerText = "TABLA " + i;
+          const elementDescription = document.createElement("p");
+          elementDescription.className = "descripcion";
+          elementDescription.innerText = contenidoDescripcion[i - 1];
+          for (let j = 1; j <= totalCeldasGrid; j++) {
+            const elementoCelda = document.createElement("div");
+            elementoCelda.innerText = i + " - " + String.fromCharCode(j + 64);
+            elementoCelda.setAttribute("data-index", `${i}-${j}`);
+            elementoGrid.appendChild(elementoCelda);
+          }
+          document.body.append(elementTitulo);
+          document.body.append(elementDescription);
+          document.body.append(elementoGrid);
+        }
+
+        const divFinal = document.createElement("div");
+        divFinal.classList.add("divFinal");
+        document.body.append(divFinal);
+      }
+
+      function detectarCeldaHoverPorPosicion() {
+        const celdas = Array.from(document.querySelectorAll(".gc div"));
+
+        document.addEventListener("mousemove", (e) => {
+          const mouseX = e.clientX;
+          const mouseY = e.clientY;
+
+          const celdasBajoRaton = celdas.filter((celda) => {
+            const rect = celda.getBoundingClientRect();
+            return (
+              mouseX >= rect.left &&
+              mouseX <= rect.right &&
+              mouseY >= rect.top &&
+              mouseY <= rect.bottom
+            );
+          });
+
+          if (celdasBajoRaton.length > 0) {
+            
+            const infoCeldas = celdasBajoRaton.map((celda) => {
+              const indice = celda.getAttribute("data-index");
+              const contenido = celda.innerText;
+              return `Celda: ${indice}, Contenido: ${contenido}`;
+            });
+
+            mostrarInformacionCeldas(infoCeldas);
+          } else {
+            ocultarInformacionCeldas();
+          }
+        });
+      }
+
+      function mostrarInformacionCeldas(infoCeldas) {
+        let infoDiv = document.querySelector(".info-celda");
+        if (!infoDiv) {
+          infoDiv = document.createElement("div");
+          infoDiv.className = "info-celda";
+          infoDiv.style.position = "fixed";
+          infoDiv.style.top = "10px";
+          infoDiv.style.right = "10px";
+          infoDiv.style.border = "1px solid black";
+          infoDiv.style.padding = "0.5em";
+          infoDiv.style.backgroundColor = "white";
+          document.body.appendChild(infoDiv);
+        }
+
+        infoDiv.innerText = `${infoCeldas.join("\n")}`;
+      }
+
+      function ocultarInformacionCeldas() {
+        const infoDiv = document.querySelector(".info-celda");
+        if (infoDiv) {
+          infoDiv.innerText = "";
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        generarGrids();
+        detectarCeldaHoverPorPosicion();
+      });
+    </script>
+  </head>
+  <body>
+    <div id="unDiv">
+      div inicial. Esta actividad tan sólo pretende establecer la generación
+      automática por código de una serie de grids, con un número de celdas para
+      cada grid. Adicionalmente se genera un texto concreto en algunas de las
+      celdas de tablas concretas.
+    </div>
+  </body>
+</html>

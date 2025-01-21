@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="va_ES">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="08_grid_justify.css" />
+
+    <script>
+      const totalContenedorsGrid = 11;
+      const totalCeldasGrid = 8;
+
+      let contenidoDescripcion = [
+        "tabla sin grid",
+        "tabla con grid sin especificar filas ni columnas",
+        "tabla con grid-template-columns: auto auto auto; grid-template-rows: auto auto;",
+        "tabla con grid-template-columns: auto auto auto; grid-template-rows: auto auto; grid-auto-flow: column;",
+        "tabla con grid-template-columns: 100px 20em 25%; grid-template-rows: auto auto;",
+        "tabla con grid-template-columns: 100px 3fr 1fr; grid-template-rows: auto auto;",
+        "tabla con grid-template-columns: 100px 3fr 1fr; grid-template-rows: auto auto;",
+        "tabla con grid-template-columns: 100px repeat(2, 10em) 1fr; grid-template-rows: auto auto;",
+        "tabla con grid-template-columns: 100px minmax(400px,600px) 1fr; grid-template-rows: auto auto;",
+        "tabla con grid-template-columns: 1fr min-content max-content; grid-template-rows: auto auto;",
+        "tabla con grid-template-columns: repeat(3, minmax(min-content, max-content)); grid-template-rows: auto auto;",
+      ];
+      let contenidoCeldas = [
+        { tabla: 5, celda: 5, contenido: "supercalifragilítoc" },
+        { tabla: 6, celda: 5, contenido: "supercalifragilítoc" },
+        {
+          tabla: 7,
+          celda: 6,
+          contenido: "muchocontenido a basedevarias apalabras . ohhhh! ",
+        },
+        { tabla: 9, celda: 5, contenido: "contenido" },
+        {
+          tabla: 10,
+          celda: 6,
+          contenido:
+            "mucho contenido supercalifragilisticoespirialidoso apalabras . ohhhh! ",
+        },
+        { tabla: 10, celda: 5, contenido: "contenido" },
+
+        { tabla: 11, celda: 4, contenido: "Renglón de varias palabras " },
+        { tabla: 11, celda: 5, contenido: "Renglón de varias palabras" },
+
+        { tabla: 12, celda: 4, contenido: "Renglón de varias palabras" },
+        {
+          tabla: 12,
+          celda: 5,
+          contenido:
+            "Renglón de contdsfsdfsfsdfsfsenidosfsdfsdfsdfsdfsfsdflroooo",
+        },
+        { tabla: 12, celda: 6, contenido: "hola nene eres listo , beer" },
+
+        { tabla: 13, celda: 4, contenido: "Renglón de varias palabras" },
+        {
+          tabla: 13,
+          celda: 5,
+          contenido:
+            "Renglón de contdsfsdfsfsdfsfsenidosfsdfsdfsdfsdfsfsdflroooo",
+        },
+        { tabla: 13, celda: 6, contenido: "hola nene eres listo , beer" },
+      ];
+
+      function generarGrids() {
+        for (let i = 1; i <= totalContenedorsGrid; i++) {
+          const elementoGrid = document.createElement("div");
+          elementoGrid.className = "gc";
+          const elementTitulo = document.createElement("h3");
+          elementTitulo.innerText = "TABLA " + i;
+          const elementDescription = document.createElement("p");
+          elementDescription.className = "descripcion";
+          elementDescription.innerText = contenidoDescripcion[i - 1];
+          for (let j = 1; j <= totalCeldasGrid; j++) {
+            const elementoCelda = document.createElement("div");
+            elementoCelda.innerText = i + " - " + String.fromCharCode(j + 64);
+            for (let x = 0; x < contenidoCeldas.length; x++) {
+              const element = contenidoCeldas[x];
+
+              if (element.tabla === i && element.celda === j)
+                elementoCelda.innerText += element.contenido;
+            }
+            elementoGrid.appendChild(elementoCelda);
+          }
+          document.body.append(elementTitulo);
+          document.body.append(elementDescription);
+          document.body.append(elementoGrid);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", generarGrids);
+    </script>
+  </head>
+  <body>
+    <div id="unDiv">
+      div inicial. Esta actividad tan sólo pretende establecer la generación
+      automática por código de una serie de grids, con un número de celdas para
+      cada grid. Adicionalmente se genera un texto concreto en algunas de las
+      celdas de tablas concretas.
+    </div>
+  </body>
+</html>

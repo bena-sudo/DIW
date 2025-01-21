@@ -1,0 +1,35 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+.caja {
+  border: 5px solid black;
+  width: 33%;
+  height: 100px;
+}
+.caja + .caja {
+  left: 33%;
+  top: 0%;
+  position: absolute;
+  width: 34%;
+}
+.caja + .caja + .caja {
+  left: 67%;
+}
+
+@media (max-width: 500px) {
+  .caja {
+    border: 5px solid red;
+    position: static;
+    width: 100%;
+  }
+  .caja + .caja {
+    position: static;
+    width: 100%;
+  }
+  .caja + .caja + .caja {
+    position: static;
+    width: 100%;
+  }
+}

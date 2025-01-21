@@ -1,0 +1,79 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+h1 {
+  text-align: center;
+}
+
+hr {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.divFinal {
+  margin-top: 50em;
+}
+
+.container-base {
+  background-color: lightblue;
+  margin: 10px;
+  border: 2px solid black;
+}
+
+.item-base {
+  width: 30px;
+  height: 30px;
+  margin: 0.5em;
+  color: white;
+  text-align: center;
+  background-color: blue;
+}
+.flex-basico-00 {
+  display: flex;
+}
+.flex-basico-01 {
+  display: flex;
+  flex-direction: column;
+}
+.item-big {
+  width: 200px;
+  height: 30px;
+  margin: 0.5em;
+  color: white;
+  text-align: center;
+  background-color: blueviolet;
+}
+.item-big-fix {
+  min-width: 200px;
+  height: 30px;
+  margin: 0.5em;
+  color: white;
+  text-align: center;
+  background-color: violet;
+}
+
+.item-void {
+  margin: 0.5em;
+  color: white;
+  text-align: center;
+  background-color: lightpink;
+}
+
+.flex-basico-03 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.flex-basico-04 {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+}
+
+.flex-basico-05 {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+  height: 200px;
+}

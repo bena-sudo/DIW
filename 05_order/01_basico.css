@@ -1,0 +1,30 @@
+.container-base {
+  background-color: aquamarine;
+  margin: 10px;
+  border: 2px solid black;
+}
+
+.item-base {
+  width: 30px;
+  height: 30px;
+  margin: 0.5em;
+  color: white;
+  text-align: center;
+  background-color: blue;
+}
+
+.flex-basico-00 {
+  display: flex;
+}
+
+.item-base:nth-child(n + 5) {
+  background-color: red;
+}
+
+.item-base:nth-child(n + 2):nth-child(-n + 4) {
+  background-color: orange;
+}
+
+.item-base:nth-child(-n + 1) {
+  background-color: yellow;
+}

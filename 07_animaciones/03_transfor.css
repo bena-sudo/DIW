@@ -1,0 +1,32 @@
+.flex {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: gray;
+  justify-content: center;
+  justify-items: center;
+}
+
+.item {
+  background-color: red;
+  width: 300px;
+  height: 300px;
+  margin: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: white;
+  transition-duration: 0s;
+}
+
+.sintransformar:hover {
+    background-color: lime;
+    height: 500px;
+    transition-duration: 2s;
+}
+
+.transformacion:hover {
+    background-color: lime;
+    transition-duration: 2s;
+    transform: translate(0,150px) scale(1,2);
+}

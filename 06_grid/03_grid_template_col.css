@@ -1,0 +1,79 @@
+.descripcion {
+  border: solid 1px black;
+  padding: 0.5em;
+  margin: 1em;
+}
+
+.gc {
+  background-color: lightpink;
+  margin: 1em;
+}
+
+.gc div {
+  border: 1px solid black;
+  border-radius: 3px;
+  margin: 2px;
+}
+
+.gc:not(:nth-child(1 of .gc)) {
+  display: grid;
+}
+
+:nth-child(2 of .gc) {
+  background-color: lightblue;
+}
+
+:nth-child(3 of .gc) {
+  background-color: lightcoral;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+}
+
+:nth-child(4 of .gc) {
+  background-color: lightgray;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+  grid-auto-flow: column;
+}
+
+:nth-child(5 of .gc) {
+  background-color: lightgreen;
+  grid-template-columns: 100px 20em 25%;
+  grid-template-rows: auto auto;
+}
+
+:nth-child(6 of .gc) {
+  background-color: lightgrey;
+  grid-template-columns: 100px 3fr 1fr;
+  grid-template-rows: auto auto;
+}
+
+:nth-child(7 of .gc) {
+  background-color: lightpink;
+  grid-template-columns: 100px 3fr 1fr;
+  grid-template-rows: auto auto;
+}
+
+:nth-child(8 of .gc) {
+  background-color: lightsalmon;
+  grid-template-columns: 100px repeat(2, 10em) 1fr;
+  grid-template-rows: auto auto;
+}
+
+:nth-child(9 of .gc) {
+  background-color: lightseagreen;
+  grid-template-columns: 100px minmax(400px, 600px) 1fr;
+  grid-template-rows: auto auto;
+}
+
+:nth-child(10 of .gc) {
+  background-color: lightskyblue;
+  grid-template-columns: 1fr min-content max-content;
+  grid-template-rows: auto auto;
+}
+
+:nth-child(11 of .gc) {
+  background-color: lightslategray;
+  grid-template-columns: repeat(3, minmax(min-content, max-content));
+  grid-template-rows: auto auto;
+}

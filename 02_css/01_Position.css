@@ -1,0 +1,25 @@
+.relleno{
+    background-color: lightyellow;
+    border: 1px solid black;
+    padding-bottom: 1em;
+}
+#muebles, #mesa, #cama{
+    border: 1px solid black;
+    padding-bottom: 1em;
+}
+#silla{
+    border: 1px dotted black;
+    position: relative;
+    top: 1em;
+}
+#bajo{
+    position: sticky;
+    bottom: 10%;
+    background-color: aqua;
+    border: 1px solid black;
+}
+#bici{
+    position: fixed;
+    left: 200px;
+    background-color: yellow;
+}

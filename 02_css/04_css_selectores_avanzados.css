@@ -1,0 +1,19 @@
+:root {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.2cm;
+}
+* {
+  font-size: 0.7cm;
+}
+h1 {
+  font-size: 1cm;
+}
+.border {
+  border: 2px solid blue;
+}
+[href] {
+  color: orange;
+}
+[miAtributo="Si"] {
+  color: aquamarine;
+}

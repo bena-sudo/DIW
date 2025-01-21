@@ -1,0 +1,52 @@
+html {
+  height: 100%;
+}
+
+body{
+    height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  background-color: gray;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 20%;
+  min-width: 200px;
+}
+.menu {
+  border: 1px solid white;
+  color: white;
+  align-content: center;
+}
+
+.main {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.article {
+  background-color: lightgray;
+  height: 90%;
+}
+.article-title {
+  background-color: gray;
+  height: 10%;
+}
+.footer {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+}
+.footer-item {
+  color: white;
+  border: 1px solid white;
+}

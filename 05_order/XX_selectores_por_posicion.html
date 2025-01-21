@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./XX_selectores_por_posicion.css" />
+
+    <script>
+      function inicializar() {
+        let contenedores = document.getElementsByClassName("contenedor");
+        let numSpans1 = 0,
+          numSpans2 = 0;
+
+        for (i = 0; i < contenedores.length; i++) {
+          let unContenedor = contenedores[i];
+          let spans = unContenedor.getElementsByTagName("span");
+
+          // idea 1 "filtrar" els elements de "spans" i vore si son fills directes de "unContenedor"
+          for (j = 0; j < spans.length; j++) {
+            if (spans[j].parentElement == unContenedor) {
+              numSpans1++;
+              if (numSpans1 == 20)
+                console.log("El id buscado es: " + unContenedor.id);
+            }
+          }
+          // idea 2 agafar els fills directes de "unContenedor" i
+          // filtrar els que son "span"
+
+          let fills = unContenedor.children;
+
+          for (j = 0; j < fills.length; j++) {
+            if (fills[j].tagName === "SPAN") {
+              numSpans2++;
+              if (numSpans2 == 20)
+                console.log("2 El id buscado es: " + unContenedor.id);
+            }
+          }
+        } //for exterrior
+
+        const contenedoresDiv = document.getElementsByTagName("div");
+        for (const element of contenedoresDiv) {
+          let elementDescription;
+          element.addEventListener("mouseenter", function (event) {
+            const target = event.currentTarget;
+            elementDescription = document.createElement("div");
+            const descripcion = target.getAttribute("descripcion");
+            elementDescription.innerText = "Descripción: " + descripcion + "\n";
+            const reglasCSS = [];
+
+            for (const regla of document.styleSheets[0].cssRules) {
+              if (target.matches(regla.selectorText)) {
+                reglasCSS.push(regla.cssText);
+              }
+            }
+
+            elementDescription.innerHTML += "CSS aplicado:<br>";
+            reglasCSS.forEach((regla) => {
+              elementDescription.innerHTML += `${regla}<br>`;
+            });
+
+            elementDescription.style.position = "absolute";
+            elementDescription.style.left = `${event.clientX}px`;
+            elementDescription.style.top = `${event.clientY}px`;
+            elementDescription.style.backgroundColor = "red";
+            elementDescription.style.zIndex = "1000";
+            document.body.appendChild(elementDescription);
+          });
+          element.addEventListener("mouseleave", function () {
+            if (elementDescription) {
+              elementDescription.remove();
+            }
+          });
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", inicializar);
+    </script>
+  </head>
+  <body>
+    <div class="minicontenedor" id="uno" descripcion="EjemploUno">
+      <span class="elem"> 1 </span>
+      <span class="elem"> 2 </span>
+      <span class="elem"> 3 </span>
+      <span class="elem"> 4 </span>
+    </div>
+
+    <div class="contenedor" id="dos" descripcion="EjemploDos">
+      <span class="elem"> 1 </span>
+      <span class="elem"> 2 </span>
+      <span class="elem"> 3 </span>
+      <span class="elem"> 4 </span>
+      <span class="elem"> 5 </span>
+      <span class="elem"> 6 </span>
+      <span class="elem"> 7 </span>
+    </div>
+
+    <div class="contenedor" id="tres" descripcion="EjemploTres">
+      <span class="elem"> 1 </span>
+      <span class="elem"> 2 </span>
+      <span class="elem">
+        3
+        <span>3.1</span>
+        <span>3.2</span>
+        <span>3,3</span>
+        <span>3.4</span>
+        <div>
+          <span>3.5.1</span>
+          <span>3.5.2</span>
+          <span>3.5.3</span>
+        </div>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+        <span></span>
+        <span></span>
+      </span>
+      <span class="elem"> 4 </span>
+      <span class="elem"> 5 </span>
+      <span class="elem"> 6 </span>
+      <span class="elem"> 7 </span>
+    </div>
+
+    <div class="contenedor" id="cuatro" descripcion="EjemploCuatro">
+      <span class="elem"> 1 </span>
+      <span class="elem"> 2 </span>
+      <span class="elem"> 3 </span>
+      <span class="elem"> 4 </span>
+      <span class="elem"> 5 </span>
+      <span class="elem"> 6 </span>
+      <span class="elem"> 7 </span>
+      <span class="elem"> 8 </span>
+      <span class="elem"> 9 </span>
+      <span class="elem"> 10 </span>
+    </div>
+
+    <div class="supercontenedor" id="sinco" descripcion="Ejemplo">
+      <span class="elem"> 1 </span>
+      <span class="elem"> 2 </span>
+      <span class="elem"> 3 </span>
+      <span class="elem"> 4 </span>
+      <span class="elem"> 5 </span>
+      <span class="elem"> 6 </span>
+      <span class="elem"> 7 </span>
+      <span class="elem"> 8 </span>
+      <span class="elem"> 9 </span>
+      <span class="elem"> 10 </span>
+      <span class="elem"> 11 </span>
+      <span class="elem"> 12 </span>
+      <span class="elem"> 13 </span>
+      <span class="elem"> 14 </span>
+      <span class="elem"> 15 </span>
+      <span class="elem"> 16 </span>
+    </div>
+
+    <div class="supercontenedor" id="sei" descripcion="Ejemplo">
+      <span class="elem"> 1 </span>
+      <span class="elem"> 2 </span>
+      <span class="elem"> 3 </span>
+      <span class="elem"> 4 </span>
+      <span class="elem"> 5 </span>
+      <span class="elem"> 6 </span>
+      <span class="elem"> 7 </span>
+      <span class="elem"> 8 </span>
+      <span class="elem"> 9 </span>
+      <span class="elem"> 10 </span>
+      <span class="elem"> 11 </span>
+      <span class="elem"> 12 </span>
+      <span class="elem"> 13 </span>
+      <span class="elem"> 14 </span>
+      <span class="elem"> 15 </span>
+      <span class="elem"> 16 </span>
+    </div>
+
+    <div class="supercontenedor" id="ciete" descripcion="Ejemplo">
+      <span class="elem"> 1 </span>
+      <span class="elem"> 2 </span>
+      <span class="elem"> 3 </span>
+      <span class="elem"> 4 </span>
+      <span class="elem"> 5 </span>
+      <span class="elem"> 6 </span>
+      <span class="elem"> 7 </span>
+      <span class="elem"> 8 </span>
+      <span class="elem"> 9 </span>
+      <span class="elem"> 10 </span>
+      <span class="elem"> 11 </span>
+      <span class="elem"> 12 </span>
+      <span class="elem"> 13 </span>
+      <span class="elem"> 14 </span>
+      <span class="elem"> 15 </span>
+      <span class="elem"> 16 </span>
+    </div>
+
+    <div class="supercontenedor" id="ocho" descripcion="Ejemplo">
+      <span class="elem"> 1 </span>
+      <span class="elem"> 2 </span>
+      <span class="elem"> 3 </span>
+      <span class="elem"> 4 </span>
+      <span class="elem"> 5 </span>
+      <span class="elem"> 6 </span>
+      <span class="elem"> 7 </span>
+      <span class="elem"> 8 </span>
+      <span class="elem"> 9 </span>
+      <span class="elem"> 10 </span>
+      <span class="elem"> 11 </span>
+      <span class="elem"> 12 </span>
+      <span class="elem"> 13 </span>
+      <span class="elem"> 14 </span>
+      <span class="elem"> 15 </span>
+      <span class="elem"> 16 </span>
+    </div>
+
+    <div></div>
+    <div class="ultracontenedor" id="nueve" descripcion="Ejemplo">
+      <script type="text/javascript">
+        num = 25;
+        var contenedor = document.getElementById("nueve");
+        /*dado que este script es el primer hijo del nodo "nueve",
+		vamos a hacer prepend desde el último hasta el primero 
+		(en orden inverso, por tanto) para que el priemr hijo
+		ya no sea el script y no estorbe a la hora de seleccionar
+		por posicion en el resto de elementos. De otra forma
+		el script sería el primer elemento (invisible)y el primero
+		visible ya sería el segundo hijo de contenedor, 
+		fastidiando el ejercicio*/
+        for (var i = num; i > 0; i--) {
+          spanElement = document.createElement("span");
+          spanElement.classList.add("elem");
+          spanElement.innerHTML = "" + i;
+
+          contenedor.prepend(spanElement);
+        }
+        /* lo siguiente es opioncal e intenta eliminar
+		el siguiente elemento como hijo del contenedor, así
+		no "juega" con los selectores de posición*/
+        //contenedor.removeChild(contenedor.lastChild);
+      </script>
+    </div>
+  </body>
+</html>

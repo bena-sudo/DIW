@@ -1,0 +1,61 @@
+:root {
+  --medidas: 100px;
+}
+
+body {
+  background-color: aqua;
+}
+
+.contendor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20vh;
+}
+
+.corazon {
+  background-color: red;
+  width: var(--medidas);
+  height: var(--medidas);
+  position: relative;
+  rotate: 45deg;
+  animation: rotardos 3s infinite;
+}
+
+.corazon::after {
+  content: "";
+  background-color: red;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 50%;
+  bottom: 50%;
+}
+
+.corazon::before {
+  content: "";
+  background-color: red;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 50%;
+  right: 50%;
+}
+
+@keyframes rotar {
+  50% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes palpitar {
+  50% {
+    transform: scale(200%);
+  }
+}
+
+@keyframes rotardos {
+  50% {
+    transform: rotate(-180deg);
+  }
+}

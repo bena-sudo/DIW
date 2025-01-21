@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Canvas Base</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const botoElement = document.getElementById("boto");
+        let x = 0;
+        let y = 0;
+        let velocidadx = 5;
+        let velocidady = 5;
+        let ancho = 20;
+        let alto = 20;
+        let dimension = 500;
+        let colorCuadrat;
+        let colorBola;
+        let cX;
+        let cY;
+        let puntos = 0;
+        const canvas = document.getElementById("tutorial");
+
+        botoElement.addEventListener("click", dibujar);
+
+        function dibujar() {
+          if (canvas.getContext) {
+            const ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, dimension, dimension);
+
+            ctx.fillStyle = colorCuadrat;
+            ctx.beginPath();
+            ctx.arc(x, y, ancho / 2, 0, 2 * Math.PI);
+            ctx.fill();
+
+            x += velocidadx;
+
+            if (x >= dimension - ancho) velocidadx = -Math.abs(velocidadx);
+
+            if (x <= 0) velocidadx = Math.abs(velocidadx);
+
+            y += velocidady;
+
+            if (y >= dimension - alto) velocidady = -Math.abs(velocidady);
+
+            if (y <= 0) velocidady = Math.abs(velocidady);
+
+            ctx.fillStyle = colorBola;
+            ctx.beginPath();
+            ctx.arc(cX, cY, ancho / 2, 0, 2 * Math.PI);
+            ctx.fill();
+
+            window.requestAnimationFrame(dibujar);
+          } else return;
+        }
+
+        const botoArriba = document.getElementById("arriba");
+        botoArriba.addEventListener("click", () => (velocidady -= 1));
+
+        const botoAbajo = document.getElementById("abajo");
+        botoAbajo.addEventListener("click", () => (velocidady += 1));
+
+        const botoizquierda = document.getElementById("izquierda");
+        botoizquierda.addEventListener("click", () => (velocidady -= 1));
+
+        const botoDerecha = document.getElementById("derecha");
+        botoDerecha.addEventListener("click", () => (velocidady += 1));
+
+        document.addEventListener("click", (event) => {
+          let geometria = canvas.getBoundingClientRect();
+          let x = geometria.left;
+          let y = geometria.top;
+          let xc = event.pageX - x;
+          let yc = event.pageY - y;
+        });
+
+        function distancia(x1, x2, y1, y2) {
+          return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
+        }
+
+        const colors = ["blue", "red", "black"];
+
+        setInterval(cambiarColor, 1000);
+        function cambiarColor() {
+          colorCuadrat = colors[Math.floor(Math.random() * colors.length)];
+          colorBola = colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        document.addEventListener("mousemove", (event) => {
+          let geometria = canvas.getBoundingClientRect();
+          let x = geometria.left;
+          let y = geometria.top;
+          cX = event.pageX - x;
+         
+          cY = event.pageY - y;
+        });
+
+        setInterval(puntuar,200)
+        setInterval(()=>{puntos -=1;},1000)
+
+        function puntuar(){
+          if (distancia(x,y,cX,cY) <= 100){
+            if (colorBola === colorCuadrat){
+              puntos += 1;
+              
+            }else{
+              puntos -= 1;
+            }
+            document.getElementById("puntos").innerHTML=""+puntos;
+          }
+        }
+      });
+    </script>
+    <style type="text/css">
+      canvas {
+        border: 1px solid black;
+        margin: 3em;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button type="button" id="boto">Dibuja</button>
+    </div>
+    <div id="puntos"></div>
+    <canvas id="tutorial" width="500" height="500"></canvas>
+
+    <canvas id="canvas2" width="500" height="500"></canvas>
+
+    <button type="button" id="arriba">Arriba</button>
+    <button type="button" id="abajo">Abajo</button>
+    <button type="button" id="izquierda">Izquierda</button>
+    <button type="button" id="derecha">Derecha</button>
+  </body>
+</html>

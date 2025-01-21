@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="./08_css_position.css" />
+
+    <script></script>
+    <style>
+      div {
+        padding: 0.5em;
+      }
+      span {
+        padding-left: 1em;
+        padding-right: 1em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <img
+        src="./850csi.jpeg"
+        style="
+          width: 150px;
+          height: 100px;
+          position: fixed;
+          top: 300px;
+          left: 440px;
+          z-index: -1;
+        "
+      />
+      <img
+        src="./2cv.jpg"
+        style="
+          width: 150px;
+          height: 100px;
+          position: fixed;
+          top: 270px;
+          left: 370px;
+          z-index: 1;
+        "
+      />
+    <div style="">
+      Estas construcciones fueron inicialmente consideradas como viviendas
+      temporales hasta que la carestía habitacional fuese finalmente resuelta
+      con la supuesta llegada definitiva del comunismo, el cual acabaría con la
+      escasez de todo tipo de bienes, y bajo el cual se cumpliría con su
+      prometida consigna "de cada cual según su trabajo, y a cada cual según sus
+      necesidades".
+    </div>
+    <div class="separador"></div>
+
+    <div style="position: static">
+      <span style="border: 1px solid red">position:static</span>
+      Estas construcciones fueron inicialmente consideradas como viviendas
+      temporales hasta que la carestía habitacional fuese finalmente resuelta
+      con la supuesta llegada definitiva del comunismo, el cual acabaría con la
+      escasez de todo tipo de bienes, y bajo el cual se cumpliría con su
+      prometida consigna "de cada cual según su trabajo, y a cada cual según sus
+      necesidades".
+    </div>
+
+    <div style="width: 600px">
+      <span style="border: 1px solid red">sin position</span>
+      Estas construcciones fueron inicialmente consideradas como viviendas
+      temporales hasta que la carestía habitacional fuese finalmente resuelta
+      con la supuesta llegada definitiva del comunismo, el cual acabaría
+    </div>
+    <div style="position: sticky; top: 10%; width: 600px;background: lightblue;">
+      <span style="border: 1px solid red">position:relative</span>
+      Estas construcciones fueron inicialmente consideradas como viviendas
+      temporales hasta que la carestía habitacional fuese finalmente resuelta
+      con la supuesta llegada definitiva del comunismo, el cual acabaría
+    </div>
+    <div style="position: relative; width: 600px">
+      <span style="border: 1px solid red">position:relative</span>
+      Estas construcciones fueron inicialmente consideradas como viviendas
+      temporales hasta que la carestía habitacional fuese finalmente resuelta
+      con la supuesta llegada definitiva del comunismo, el cual acabaría
+    </div>
+    <div style="position: static; width: 600px">
+      <span style="border: 1px solid red">position:static</span>
+      Estas construcciones fueron inicialmente consideradas como viviendas
+      temporales hasta que la carestía habitacional fuese finalmente resuelta
+      con la supuesta llegada definitiva del comunismo, el cual acabaría
+    </div>
+    <div style="position: sticky; bottom: 10%; width: 600px;background: lightgreen;">
+      <span style="border: 1px solid red">position:relative</span>
+      Estas construcciones fueron inicialmente consideradas como viviendas
+      temporales hasta que la carestía habitacional fuese finalmente resuelta
+      con la supuesta llegada definitiva del comunismo, el cual acabaría
+    </div>
+    <div style="position: relative; top: 40px; left: 100px; width: 600px">
+      <span style="border: 1px solid red"
+        >position:relative;top:40px;left:100px</span
+      >
+      Estas construcciones fueron inicialmente consideradas como viviendas
+      temporales hasta que la carestía habitacional fuese finalmente resuelta
+      con la supuesta llegada definitiva del comunismo, el cual acabaría
+    </div>
+
+    <div style="position: static; width: 600px">
+      <span style="border: 1px solid red">position:static</span>
+      Estas construcciones fueron inicialmente consideradas como viviendas
+      temporales hasta que la carestía habitacional fuese finalmente resuelta
+      con la supuesta llegada definitiva del comunismo, el cual acabaría
+    </div>
+
+    <div class="separador" style="background: lightyellow"></div>
+    <div
+      style="
+        width: 600px;
+        position: absolute;
+        top: 100px;
+        left: 500px;
+        background: lightpink;
+      "
+    >
+      <span style="border: 1px solid red"
+        >position:absolute;top:100px;left:500px</span
+      >
+      Estas construcciones fueron inicialmente consideradas como viviendas
+      temporales hasta que la carestía habitacional fuese finalmente resuelta
+      con la supuesta llegada definitiva del comunismo, el cual acabaría
+    </div>
+
+    <div style="position: static; width: 600px; background: yellow">
+      <span style="border: 1px solid red">position:static</span>
+      Estas construcciones fueron inicialmente consideradas como viviendas
+      temporales hasta que la carestía habitacional fuese finalmente resuelta
+      con la supuesta llegada definitiva del comunismo, el cual acabaría
+    </div>
+
+    <div class="separador"></div>
+    <div class="separador"></div>
+
+    <div
+      style="
+        width: 700px;
+        height: 400px;
+        border: 1px solid green;
+        position: relative;
+      "
+    >
+      <img
+        src="./850csi.jpeg"
+        style="
+          width: 200px;
+          height: 150px;
+          position: absolute;
+          top: 20px;
+          left: 20px;
+        "
+      />
+      <img
+        src="./850csi.jpeg"
+        style="
+          width: 150px;
+          height: 100px;
+          position: absolute;
+          top: 170px;
+          left: 220px;
+        "
+      />
+      <img
+        src="./850csi.jpeg"
+        style="
+          width: 150px;
+          height: 100px;
+          position: absolute;
+          top: 270px;
+          left: 370px;
+        "
+      />
+    </div>
+  </body>
+</html>

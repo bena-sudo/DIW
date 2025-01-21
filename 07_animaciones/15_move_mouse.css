@@ -1,0 +1,26 @@
+:root {
+  --medida: 50px;
+  --x: 0px;
+  --y: 0px;
+}
+
+.contendor {
+  animation: mover 4s infinite;
+  width: var(--medida);
+  height: var(--medida);
+  background-color: red;
+  position: relative;
+}
+body {
+  padding: 0%;
+  margin: 0%;
+}
+
+@keyframes mover {
+  50% {
+    transform: translate(
+      calc(var(--x) - var(--medida)),
+      calc(var(--y) - var(--medida))
+    );
+  }
+}

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="va_ES">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="./04_Manipular_DOM.css" />
+
+    <style>
+      /**********  PON TUS ESTILOS AQU� ****************/
+    </style>
+
+    <script>
+      /* PON TUS VARIABLES JS AQU� */
+
+      /************ FUNCI�N INICIALIZAR *******************/
+      function inicializar() {
+        console.log(
+          `--1. El contenido html del elemento identificado con "restaurante"--`
+        );
+        let divRestaurante = document.getElementById("restaurante");
+        console.log(divRestaurante.innerHTML);
+
+        console.log(
+          `--2. El contenido html de todos los elementos cuya clase es "verso"--`
+        );
+        let classeVerso = document.getElementsByClassName("verso");
+        for (let i = 0; i < classeVerso.length; i++) {
+          console.log(classeVerso.item(i).innerHTML);
+        }
+
+        console.log(
+          `--3. Las clases de todos los elementos div del documento--`
+        );
+        let divElements = document.getElementsByTagName("div");
+        for (let i = 0; i < divElements.length; i++) {
+          console.log(divElements[i].className);
+        }
+
+        console.log(
+          `--4. El contenido de todos los elementos p, que son hijos del div "Precios"--`
+        );
+        let hijosP = document.querySelectorAll("div#Precios p");
+        hijosP.forEach((p) => {
+          console.log(p.innerHTML);
+        });
+
+        console.log(
+          `--5. El contenido html de todos los elementos hijos del div "Precios"--`
+        );
+        let divPrecios = document.getElementById("Precios");
+        for (let i = 0; i < divPrecios.children.length; i++) {
+          console.log(divPrecios.children[i].innerHTML);
+        }
+
+        console.log(
+          `--6. El identificador de la última <section> que aparece en el documento.--`
+        );
+        let listSection = document.getElementsByTagName("section");
+        console.log(listSection[listSection.length - 1].id);
+
+        console.log(
+          `--7. El código html interno de todos los elementos de tipo section y clase rojo que cuelgan del div "menu".--`
+        );
+        let listSectionRojo = document.querySelectorAll("#menu section.rojo");
+        listSectionRojo.forEach((section) => {
+          console.log(section.innerHTML);
+        });
+
+        console.log(
+          `--8. El contenido tabulado de todos los elementos de la tabla "laTabla".--`
+        );
+        let tablaTr = laTabla.querySelectorAll("#laTabla tbody tr");
+
+        tablaTr.forEach((t) => {
+          let texto = "";
+          let textoAux = "";
+          for (let i = 0; i < t.children.length; i++) {
+            texto = t.children[i].innerHTML;
+            textoAux += texto.padEnd(30);
+          }
+          console.log(textoAux);
+        });
+
+        console.log(
+          `--9. Repetir el ejercicio anterior pero mostrando la tabla transpuesta (las filas se cambian por columnas).--`
+        );
+        let transpuesta = [];
+
+        tablaTr.forEach((fila) => {
+          let celdas = fila.children;
+          for (let i = 0; i < celdas.length; i++) {
+            if (!transpuesta[i]) {
+              transpuesta[i] = []; // Inicializar la fila si no existe
+            }
+            transpuesta[i].push(celdas[i].innerHTML.padEnd(30));
+          }
+        });
+
+        transpuesta.forEach((fila) => {
+          console.log(...fila); // Unir las celdas de cada fila con un espaciado
+        });
+        
+      }
+      /********** DOMContentLoaded ***********************/
+      document.addEventListener("DOMContentLoaded", inicializar);
+    </script>
+  </head>
+  <body>
+    <div id="restaurante">Restaurante Juan Garc&iacute;</div>
+    <div class="rojo verso">Rojo como el tomate</div>
+    <div class="azul verso">Azul como el nosequ$eacute;</div>
+    <div class="verde verso">Verde como la aceituna verde</div>
+    <div class="verde verso">Verde como el verde lim&oacute;n</div>
+    <div class="separador"></div>
+
+    <div id="menu">
+      Men&uacute;
+      <section class="rojo margen-izquierdo">
+        Primeros platos
+        <div class="azul margen-izquierdo">
+          Ensalada
+          <span class="rojo"> con tomate y lechuga </span>
+        </div>
+        <div class="azul margen-izquierdo">
+          Salmorejo
+          <span class="rojo"> Gazpacho suave </span>
+        </div>
+      </section>
+      <section class="rojo margen-izquierdo">
+        Segundos platos
+        <div class="azul margen-izquierdo">
+          Entrecot
+          <span class="rojo"> Con patatas fritas </span>
+        </div>
+        <div class="azul margen-izquierdo">
+          Merluza
+          <span class="rojo"> Como la que da el vino </span>
+        </div>
+      </section>
+      <section class="azul margen-izquierdo">
+        Postre
+        <div class="rojo margen-izquierdo">
+          Natillas
+          <span class="verde"> Caseras </span>
+        </div>
+        <div class="azul margen-izquierdo">
+          Fruta de tiempo
+          <span class="rojo"> Con cuchillo que no corta </span>
+        </div>
+      </section>
+    </div>
+    <div class="separador"></div>
+
+    <div id="Precios">
+      Precios
+      <p class="azul">Si comes a gusto: 12 euros</p>
+      <div class="verde">Si comes a disgustro: 15 euros</div>
+      <p class="rojo">Si no comes: 20 euros</p>
+    </div>
+    <div class="separador"></div>
+
+    <section id="ultimaSeccion" class="Clientes margen-izquierdo">
+      <h2 id="h2Tabla">Clientes Favoritos</h2>
+      <table id="laTabla">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Correo</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpoTabla">
+          <tr>
+            <td>Enrique</td>
+            <td>Hambre Tengo</td>
+            <td>john@example.com</td>
+          </tr>
+          <tr>
+            <td>Dolores</td>
+            <td>Fuertes de Barriga</td>
+            <td>mary@mail.com</td>
+          </tr>
+          <tr>
+            <td>Martin</td>
+            <td>Gala</td>
+            <td>july@greatstuff.com</td>
+          </tr>
+          <tr>
+            <td>Far</td>
+            <td>Lopa Delabuena</td>
+            <td>a_r@test.com</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <p class="rojo">Este P no ha de salir en el punto 4</p>
+    <div id="direcciones"></div>
+  </body>
+</html>

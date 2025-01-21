@@ -1,0 +1,64 @@
+.descripcion {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1rem;
+}
+
+h1 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.item-base {
+  width: 30px;
+  height: 30px;
+  margin: 0.5em;
+  /*line-height:30px;*/
+  color: aliceblue;
+  text-align: center;
+  background-color: purple;
+}
+
+.reorder {
+  background-color: yellow;
+  border: 1px dashed lightgray;
+  margin: 10px;
+  display: flex;
+  flex-direction: row; /* por defecto */
+}
+
+/*
+.item-base:nth-child(5),
+.item-base:nth-child(7),
+.item-base:nth-child(9),
+.item-base:nth-child(11),
+.item-base:nth-child(13) {
+  order: -10;
+  background-color: red;
+}
+
+.item-base:nth-child(2),
+.item-base:nth-child(3),
+.item-base:nth-child(10),
+.item-base:nth-child(12) {
+  order: -9;
+  background-color: blue;
+}*/
+/*
+
+	.item-base:nth-child(n+5):nth-child(2n-1) {
+	background-color: red;
+  }
+	
+}*/
+
+.reorder .item-base:nth-child(2n + 5) {
+  order: -1;
+  background-color: red;
+}
+
+.reorder .item-base:nth-child(3n + 1):nth-child(-n + 5),
+.reorder .item-base:nth-child(2n + 6):nth-child(-n + 8),
+.reorder .item-base:last-child {
+  order: 1;
+  background-color: blue;
+}
