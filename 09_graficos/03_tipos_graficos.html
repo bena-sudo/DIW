@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script type="module" src="../chart/package/dist/chart.umd.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", iniciar);
+
+      let grafico;
+      const data = [
+        { x: "Jan", net: 100, cogs: 50, gm: 50 },
+        { x: "Feb", net: 120, cogs: 55, gm: 75 },
+      ];
+      let tipos = ["bar", "bubble", "polarArea", "radar", "scatter"];
+      let numTip = 0;
+
+      function addDato() {
+        grafico.data.datasets[0].data.push({
+          x: "Can",
+          net: 11,
+          cogs: 30,
+          gm: 5,
+        });
+        grafico.update();
+      }
+
+      function updateTipo(){
+        grafico.config.type = tipos[numTip]
+        grafico.update();
+      }
+
+      function iniciar() {
+        iniciargrafico();
+        let botonAdd = document.getElementById("add");
+        botonAdd.addEventListener("click", addDato);
+
+        let botonSig = document.getElementById("siguiente");
+        botonSig.addEventListener("click", () => {
+          numTip++;
+          numTip = numTip % tipos.length;
+          updateTipo()
+        });
+
+        let botonAnt = document.getElementById("anterior");
+        botonAnt.addEventListener("click", () => {
+          numTip--;
+          if (numTip < 0) numTip = tipos.length - 1;
+          updateTipo()
+        });
+      }
+
+      function iniciargrafico() {
+        const canvas = document.getElementById("chart");
+        grafico = new Chart(canvas, {
+          type: tipos[numTip],
+          data: {
+            labels: ["Jan", "Feb"],
+            datasets: [
+              {
+                label: "Net sales",
+                data: data,
+                parsing: {
+                  yAxisKey: "net",
+                },
+              },
+              {
+                label: "Cost of goods sold",
+                data: data,
+                parsing: {
+                  yAxisKey: "cogs",
+                },
+              },
+              {
+                label: "Gross margin",
+                data: data,
+                parsing: {
+                  yAxisKey: "gm",
+                },
+              },
+            ],
+          },
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="controles">
+      <button id="add">add</button>
+      <button id="siguiente">siguiente</button>
+      <button id="anterior">anterior</button>
+    </div>
+    <div style="height: 80vh; width: 80vw">
+      <canvas id="chart"></canvas>
+    </div>
+  </body>
+</html>

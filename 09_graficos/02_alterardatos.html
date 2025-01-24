@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script type="module" src="../chart/package/dist/chart.umd.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", iniciar);
+
+      let grafico;
+      const data = [
+        { x: "Jan", net: 100, cogs: 50, gm: 50 },
+        { x: "Feb", net: 120, cogs: 55, gm: 75 },
+      ];
+
+      function addDato() {
+        grafico.data.datasets[0].data.push( {
+          x: "Can",
+          net: 11,
+          cogs: 30,
+          gm: 5,
+        });
+        grafico.update();
+      }
+
+      function iniciar() {
+        iniciargrafico();
+        let boton = document.getElementById("add");
+        boton.addEventListener("click", addDato);
+      }
+
+      function iniciargrafico() {
+        const canvas = document.getElementById("chart");
+        grafico = new Chart(canvas, {
+          type: "bar",
+          data: {
+            labels: ["Jan", "Feb"],
+            datasets: [
+              {
+                label: "Net sales",
+                data: data,
+                parsing: {
+                  yAxisKey: "net",
+                },
+              },
+              {
+                label: "Cost of goods sold",
+                data: data,
+                parsing: {
+                  yAxisKey: "cogs",
+                },
+              },
+              {
+                label: "Gross margin",
+                data: data,
+                parsing: {
+                  yAxisKey: "gm",
+                },
+              },
+            ],
+          },
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="controles">
+      <button id="add">Añadir un dato</button>
+    </div>
+    <div style="height: 80vh; width: 80vw;">
+      <canvas id="chart"></canvas>
+    </div>
+  </body>
+</html>
