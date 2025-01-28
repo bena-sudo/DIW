@@ -1,53 +1,53 @@
-:root{
-    --paddin:2em;
+:root {
+  --paddin: 2em;
 }
 
-body{
-    padding: 0px;
-    margin: 0px;
+body {
+  padding: 0px;
+  margin: 0px;
 }
 
-.container{
-    border: 2px dotted red;
-    padding: var(--paddin);
+.container {
+  border: 2px dotted red;
+  padding: var(--paddin);
 }
 
-.move{
-    background-color: red;
-    color: white;
-    width: 100px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition-duration: 5s;
+.move {
+  background-color: red;
+  color: white;
+  width: 100px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 5s;
 }
 
-.container:hover .move{
-    background-color: green;
-    transform: translateX(calc(100vw - 100% - var(--paddin) * 2 - 4px));
+.container:hover .move {
+  background-color: green;
+  transform: translateX(calc(100vw - 100% - var(--paddin) * 2 - 4px));
 }
 
-.easer{
-    transition-timing-function: ease;
+.easer {
+  transition-timing-function: ease;
 }
 
-.easerin{
-    transition-timing-function: ease-in;
+.easerin {
+  transition-timing-function: ease-in;
 }
 
-.easerout{
-    transition-timing-function: ease-out;
+.easerout {
+  transition-timing-function: ease-out;
 }
 
-.easeroutin{
-    transition-timing-function: ease-in-out;
+.easeroutin {
+  transition-timing-function: ease-in-out;
 }
 
-.linier{
-    transition-timing-function: linear;
+.linier {
+  transition-timing-function: linear;
 }
 
-.cubic{
-    transition-timing-function: cubic-bezier(1,-1.2,0,2.2);
+.cubic {
+  transition-timing-function: cubic-bezier(1, -1.2, 0, 2.2);
 }

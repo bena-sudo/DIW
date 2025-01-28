@@ -20,13 +20,13 @@
 }
 
 .sintransformar:hover {
-    background-color: lime;
-    height: 500px;
-    transition-duration: 2s;
+  background-color: lime;
+  height: 500px;
+  transition-duration: 2s;
 }
 
 .transformacion:hover {
-    background-color: lime;
-    transition-duration: 2s;
-    transform: translate(0,150px) scale(1,2);
+  background-color: lime;
+  transition-duration: 2s;
+  transform: translate(0, 150px) scale(1, 2);
 }

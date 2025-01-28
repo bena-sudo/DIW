@@ -1,91 +1,82 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="va_ES">
-<head>
-<meta charset="utf-8" />
+  <head>
+    <meta charset="utf-8" />
 
-<link rel="stylesheet" type="text/css" href="./06_grid_items_dense.css">
+    <link rel="stylesheet" type="text/css" href="./06_grid_items_dense.css" />
 
-<style>
-      
-/**********  PON TUS ESTILOS AQU� ****************/
+    <style>
+      /**********  PON TUS ESTILOS AQU� ****************/
+    </style>
 
-</style>
+    <script>
+      let descripciones = [
+        "" /* La primera descripción es la 0 y no se usa */,
+        "grid con grid-auto-flow:row y  elemento d con <br> grid-column-start: 3 ;",
+        "Mismo grid con grid-auto-flow:row dense;",
+        "grid con elemento 5 grid-column-start: 1 ;",
+        "misma tabla con grid-auto-flow:row dense;",
+      ];
 
-<script>
+      let contenidoCeldas = [
+        { tabla: 577, celda: 577, contenido: "" },
+        { tabla: 677, celda: 577, contenido: "" },
+        { tabla: 777, celda: 577, contenido: "" },
+        { tabla: 877, celda: 577, contenido: "" },
+      ];
 
-let descripciones=[
-	"", /* La primera descripción es la 0 y no se usa */
-	"grid con grid-auto-flow:row y  elemento d con <br> grid-column-start: 3 ;",
-	"Mismo grid con grid-auto-flow:row dense;",
-	"grid con elemento 5 grid-column-start: 1 ;",
-	"misma tabla con grid-auto-flow:row dense;"
-	]
+      function contenido(nT, nC) {
+        let htmlCelda =
+          "<div>" + nT + " - " + String.fromCharCode(nC + 65) + " </div>";
 
-let contenidoCeldas = [
-	{ tabla:577, celda:577 , contenido:"" },
-  { tabla:677, celda:577 , contenido:"" },
-{ tabla:777, celda:577 , contenido:"" }, 
-	{ tabla:877, celda:577 , contenido:""}
-];
+        for (let i = 0; i < contenidoCeldas.length; i++) {
+          if (contenidoCeldas[i].tabla == nT && contenidoCeldas[i].celda == nC)
+            return "<div>" + contenidoCeldas[i].contenido + " </div>";
+        }
 
+        return htmlCelda;
+      }
 
-function contenido( nT, nC)  {
-	let htmlCelda = "<div>" + nT + " - " +
-						String.fromCharCode(nC + 65 ) + " </div>";
-
-	for (let i=0 ; i < contenidoCeldas.length; i++){
-		if ( contenidoCeldas[i].tabla == nT &&
-				contenidoCeldas[i].celda == nC)
-				return "<div>" + contenidoCeldas[i].contenido+ " </div>";
-	
-	}
-
-
-	return htmlCelda;
-}
-
-/********** DOMContentLoaded ***********************/
-/*document.addEventListener("DOMContentLoaded", function(event) {
+      /********** DOMContentLoaded ***********************/
+      /*document.addEventListener("DOMContentLoaded", function(event) {
 	customElements.define("mi-grid",MiGrid,{extends: 'div'});
 	console.log("hola");
 });*/
-</script>
+    </script>
+  </head>
+  <body>
+    <div id="unDiv">
+      Probar grid-auto-flow en una tabla de las iniciales (una vez) establecido
+      grid-template-column y grid-template-rows
+    </div>
 
-</head>
-<body>
+    <script>
+      let totalGrids = 5;
+      let totalCells = 8;
 
-<div id="unDiv" > Probar grid-auto-flow en una tabla de las iniciales 
-	(una vez) establecido grid-template-column y grid-template-rows</div>
+      /* empesamos en uno poque la sero no mola verla */
+      for (let numTabla = 1; numTabla < totalGrids; numTabla++) {
+        let codigo =
+          '<div style="margin-top:1em"> Tabla ' + numTabla + "</div>";
+        if (numTabla < descripciones.length)
+          codigo +=
+            '<div class="descripcion"> ' +
+            numTabla +
+            "  " +
+            descripciones[numTabla] +
+            "</div>";
 
-<script>
+        codigo += '<div class="gc">';
 
-let totalGrids = 5;
-let totalCells = 8;
+        for (let numCelda = 0; numCelda < totalCells; numCelda++) {
+          let htmlCelda = contenido(numTabla, numCelda);
+          codigo += htmlCelda;
+        }
 
-/* empesamos en uno poque la sero no mola verla */
-	for (let numTabla=1 ; numTabla < totalGrids; numTabla++) {
-		let codigo="<div style=\"margin-top:1em\"> Tabla " + numTabla + "</div>";
-		if (numTabla < descripciones.length) 
-			codigo += "<div class=\"descripcion\"> " + numTabla+ "  " + 
-					descripciones[numTabla] +"</div>" ;
+        codigo += "</div>";
 
-		codigo += "<div class=\"gc\">" ;
-
-		for (let numCelda = 0; numCelda < totalCells; numCelda++){
-		
-				let htmlCelda = contenido(numTabla,numCelda);
-				codigo += htmlCelda;
-		
-		
-		}
-			
-		codigo +="</div>"
-		
-		document.body.innerHTML += codigo
-	}
-
-</script>
-
-
-</body>
+        document.body.innerHTML += codigo;
+      }
+    </script>
+  </body>
 </html>

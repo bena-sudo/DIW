@@ -4,7 +4,7 @@
   margin: 1em;
 }
 
-body{
+body {
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -38,4 +38,3 @@ body{
   align-content: end;
   width: max-content;
 }
-

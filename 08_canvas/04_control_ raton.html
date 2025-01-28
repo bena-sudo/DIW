@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -93,22 +93,23 @@
           let x = geometria.left;
           let y = geometria.top;
           cX = event.pageX - x;
-         
+
           cY = event.pageY - y;
         });
 
-        setInterval(puntuar,200)
-        setInterval(()=>{puntos -=1;},1000)
+        setInterval(puntuar, 200);
+        setInterval(() => {
+          puntos -= 1;
+        }, 1000);
 
-        function puntuar(){
-          if (distancia(x,y,cX,cY) <= 100){
-            if (colorBola === colorCuadrat){
+        function puntuar() {
+          if (distancia(x, y, cX, cY) <= 100) {
+            if (colorBola === colorCuadrat) {
               puntos += 1;
-              
-            }else{
+            } else {
               puntos -= 1;
             }
-            document.getElementById("puntos").innerHTML=""+puntos;
+            document.getElementById("puntos").innerHTML = "" + puntos;
           }
         }
       });

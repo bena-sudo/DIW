@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="va_ES">
   <head>
     <meta charset="utf-8" />
@@ -14,13 +14,13 @@
       /************ FUNCI�N INICIALIZAR *******************/
       function inicializar() {
         console.log(
-          `--1. El contenido html del elemento identificado con "restaurante"--`
+          `--1. El contenido html del elemento identificado con "restaurante"--`,
         );
         let divRestaurante = document.getElementById("restaurante");
         console.log(divRestaurante.innerHTML);
 
         console.log(
-          `--2. El contenido html de todos los elementos cuya clase es "verso"--`
+          `--2. El contenido html de todos los elementos cuya clase es "verso"--`,
         );
         let classeVerso = document.getElementsByClassName("verso");
         for (let i = 0; i < classeVerso.length; i++) {
@@ -28,7 +28,7 @@
         }
 
         console.log(
-          `--3. Las clases de todos los elementos div del documento--`
+          `--3. Las clases de todos los elementos div del documento--`,
         );
         let divElements = document.getElementsByTagName("div");
         for (let i = 0; i < divElements.length; i++) {
@@ -36,7 +36,7 @@
         }
 
         console.log(
-          `--4. El contenido de todos los elementos p, que son hijos del div "Precios"--`
+          `--4. El contenido de todos los elementos p, que son hijos del div "Precios"--`,
         );
         let hijosP = document.querySelectorAll("div#Precios p");
         hijosP.forEach((p) => {
@@ -44,7 +44,7 @@
         });
 
         console.log(
-          `--5. El contenido html de todos los elementos hijos del div "Precios"--`
+          `--5. El contenido html de todos los elementos hijos del div "Precios"--`,
         );
         let divPrecios = document.getElementById("Precios");
         for (let i = 0; i < divPrecios.children.length; i++) {
@@ -52,13 +52,13 @@
         }
 
         console.log(
-          `--6. El identificador de la última <section> que aparece en el documento.--`
+          `--6. El identificador de la última <section> que aparece en el documento.--`,
         );
         let listSection = document.getElementsByTagName("section");
         console.log(listSection[listSection.length - 1].id);
 
         console.log(
-          `--7. El código html interno de todos los elementos de tipo section y clase rojo que cuelgan del div "menu".--`
+          `--7. El código html interno de todos los elementos de tipo section y clase rojo que cuelgan del div "menu".--`,
         );
         let listSectionRojo = document.querySelectorAll("#menu section.rojo");
         listSectionRojo.forEach((section) => {
@@ -66,7 +66,7 @@
         });
 
         console.log(
-          `--8. El contenido tabulado de todos los elementos de la tabla "laTabla".--`
+          `--8. El contenido tabulado de todos los elementos de la tabla "laTabla".--`,
         );
         let tablaTr = laTabla.querySelectorAll("#laTabla tbody tr");
 
@@ -81,7 +81,7 @@
         });
 
         console.log(
-          `--9. Repetir el ejercicio anterior pero mostrando la tabla transpuesta (las filas se cambian por columnas).--`
+          `--9. Repetir el ejercicio anterior pero mostrando la tabla transpuesta (las filas se cambian por columnas).--`,
         );
         let transpuesta = [];
 
@@ -98,7 +98,6 @@
         transpuesta.forEach((fila) => {
           console.log(...fila); // Unir las celdas de cada fila con un espaciado
         });
-        
       }
       /********** DOMContentLoaded ***********************/
       document.addEventListener("DOMContentLoaded", inicializar);

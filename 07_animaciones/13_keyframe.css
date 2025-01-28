@@ -1,17 +1,27 @@
-.contenedor{
-    background-color: red;
-    height: 400px;
-    width: 400px;
+.contenedor {
+  background-color: red;
+  height: 400px;
+  width: 400px;
 }
 
-.contenedor:hover{
-    animation: colores 6s 2;
+.contenedor:hover {
+  animation: colores 6s 2;
 }
 
 @keyframes colores {
-    0% {background-color: red;}
-    20% {background-color: yellow;}
-    50% {background-color: white;}
-    75% {background-color: blue;}
-    100% {background-color: brown;}
+  0% {
+    background-color: red;
+  }
+  20% {
+    background-color: yellow;
+  }
+  50% {
+    background-color: white;
+  }
+  75% {
+    background-color: blue;
+  }
+  100% {
+    background-color: brown;
+  }
 }

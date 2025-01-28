@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -73,7 +73,14 @@
             ctx.fillRect(x, y, 20 * scale, 50 * scale);
 
             ctx.beginPath();
-            ctx.arc(x + 10 * scale, y - 10 * scale, 30 * scale, 0, Math.PI * 2, true);
+            ctx.arc(
+              x + 10 * scale,
+              y - 10 * scale,
+              30 * scale,
+              0,
+              Math.PI * 2,
+              true,
+            );
             ctx.fillStyle = "#228B22";
             ctx.fill();
           };

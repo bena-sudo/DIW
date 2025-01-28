@@ -163,7 +163,7 @@
 :nth-child(10 of .gc) {
   background-color: lightseagreen;
   grid-template-columns: auto auto auto;
-  grid-template-rows: repeat(5,2em);
+  grid-template-rows: repeat(5, 2em);
 }
 
 :nth-child(10 of .gc) :nth-child(3) {
@@ -217,15 +217,12 @@
   background-color: rgba(230, 144, 230, 0.3);
   grid-column: 3;
   grid-row: 2 / 4;
-  
 }
 
 :nth-child(11 of .gc) :nth-child(7) {
   background-color: rgba(0, 0, 0, 0.3);
   grid-column: 4;
   grid-row: 1 / span 4;
-  
-  
 }
 
 :nth-child(11 of .gc) :nth-child(8) {

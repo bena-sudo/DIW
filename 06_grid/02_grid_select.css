@@ -13,13 +13,18 @@
 }
 
 :nth-child(1 of .gc) {
-    border: 2px solid purple;
+  border: 2px solid purple;
 }
 
 :nth-child(3 of .gc) :nth-child(5) {
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(2,0,36,1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(2, 0, 36, 1) 100%
+  );
 }
 
-.descripcion{
-    border: solid 1px black;
+.descripcion {
+  border: solid 1px black;
 }

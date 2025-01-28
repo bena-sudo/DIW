@@ -1,29 +1,29 @@
-.contenedor{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(3,100px);
-    grid-template-areas: 
+.contenedor {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 100px);
+  grid-template-areas:
     "cabecera cabecera cuerpo cuerpo"
     "lateral subcuerpo subcuerpo -"
     "lateral pie pie pie";
 }
-.lateral{
-    background-color: red;
-    grid-area: lateral;
+.lateral {
+  background-color: red;
+  grid-area: lateral;
 }
-.cuerpo{
-    background-color: blue;
-    grid-area: cuerpo;
+.cuerpo {
+  background-color: blue;
+  grid-area: cuerpo;
 }
-.cabecera{
-    background-color: yellow;
-    grid-area: cabecera;
+.cabecera {
+  background-color: yellow;
+  grid-area: cabecera;
 }
-.subcuerpo{
-    background-color: orange;
-    grid-area: subcuerpo;
+.subcuerpo {
+  background-color: orange;
+  grid-area: subcuerpo;
 }
-.pie{
-    background-color: violet;
-    grid-area: pie;
+.pie {
+  background-color: violet;
+  grid-area: pie;
 }

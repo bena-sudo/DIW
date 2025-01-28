@@ -36,16 +36,15 @@ body {
   transition-duration: 2s;
 }
 
-.div1:hover::before{
-    transform: translateX(100%);
+.div1:hover::before {
+  transform: translateX(100%);
 }
 
-
-.div1:hover::after{
-    transform: translateX(-100%);
+.div1:hover::after {
+  transform: translateX(-100%);
 }
 
-.div2{
-overflow: hidden;
-margin-top: 100%;
+.div2 {
+  overflow: hidden;
+  margin-top: 100%;
 }

@@ -36,21 +36,21 @@ body {
 }
 
 .box3 {
-    background-color: salmon;
-    outline: 5px solid blue;
-    transition-property: width, background-color;
-    transition-duration: 10s, 1s;
-    width: 50%;
-  }
-  
-  .box3:hover {
-    background-color: red;
-    
-    width: 80%;
-    outline: 2em solid green;
-    border: 8px dashed black;
-    font-size: 2em;
-    font-family: "Courier New", Courier, monospace;
-    transition-property: width, background-color;
-    transition-duration: 1s, 10s;
-  }
+  background-color: salmon;
+  outline: 5px solid blue;
+  transition-property: width, background-color;
+  transition-duration: 10s, 1s;
+  width: 50%;
+}
+
+.box3:hover {
+  background-color: red;
+
+  width: 80%;
+  outline: 2em solid green;
+  border: 8px dashed black;
+  font-size: 2em;
+  font-family: "Courier New", Courier, monospace;
+  transition-property: width, background-color;
+  transition-duration: 1s, 10s;
+}

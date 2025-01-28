@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -52,7 +52,9 @@
 
         let inpRange = document.getElementById("range");
         inpRange.addEventListener("change", (event) => {
-          animacion.currentTime = (animacion.effect.getComputedTiming().duration * inpRange.value) / 100;
+          animacion.currentTime =
+            (animacion.effect.getComputedTiming().duration * inpRange.value) /
+            100;
         });
       });
     </script>

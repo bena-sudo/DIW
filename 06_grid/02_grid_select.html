@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="va_ES">
   <head>
     <meta charset="utf-8" />
@@ -10,7 +10,7 @@
 
       let contenidoDescripcion = [
         "tabla sin grid",
-        "tabla con grud sin especificar filas ni columnas"
+        "tabla con grud sin especificar filas ni columnas",
       ];
       let contenidoCeldas = [
         { tabla: 5, celda: 5, contenido: "supercalifragilítoc" },
@@ -58,8 +58,8 @@
           const elementTitulo = document.createElement("h3");
           elementTitulo.innerText = "TABLA " + i;
           const elementDescription = document.createElement("p");
-          elementDescription.className ="descripcion";
-          elementDescription.innerText = contenidoDescripcion[i-1];
+          elementDescription.className = "descripcion";
+          elementDescription.innerText = contenidoDescripcion[i - 1];
           for (let j = 1; j <= totalCeldasGrid; j++) {
             const elementoCelda = document.createElement("div");
             elementoCelda.innerText = i + " - " + String.fromCharCode(j + 64);

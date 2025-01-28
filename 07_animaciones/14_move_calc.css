@@ -1,21 +1,30 @@
-:root{
-    --medida:50px;
+:root {
+  --medida: 50px;
 }
 
-.contendor{
-    animation: mover 4s infinite;
-    width: var(--medida);
-    height: var(--medida);
-    background-color: red;
-    position: relative;
+.contendor {
+  animation: mover 4s infinite;
+  width: var(--medida);
+  height: var(--medida);
+  background-color: red;
+  position: relative;
 }
-body{
-    padding: 0%;
-    margin: 0%;
+body {
+  padding: 0%;
+  margin: 0%;
 }
 
 @keyframes mover {
-    25% {transform: translateX(calc(100vw - var(--medida)));}
-    50% {transform: translate(calc(100vw - var(--medida)),calc(100vh - var(--medida)));}
-    75% {transform: translateY(calc(100vh - var(--medida)));}
+  25% {
+    transform: translateX(calc(100vw - var(--medida)));
+  }
+  50% {
+    transform: translate(
+      calc(100vw - var(--medida)),
+      calc(100vh - var(--medida))
+    );
+  }
+  75% {
+    transform: translateY(calc(100vh - var(--medida)));
+  }
 }

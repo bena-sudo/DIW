@@ -14,69 +14,69 @@
   margin-bottom: 5px;
 }
 
-._min-content{
-    background-color: orange;
-    color: black;
-    width: min-content;
+._min-content {
+  background-color: orange;
+  color: black;
+  width: min-content;
 }
 
-._max-content{
-    background-color: red;
-    width: max-content;
+._max-content {
+  background-color: red;
+  width: max-content;
 }
 
-.basis5em{
-    background-color: olive;
-    flex-basis: 5em;
+.basis5em {
+  background-color: olive;
+  flex-basis: 5em;
 }
 
-.basis1em{
-    background-color: blue;
-    flex-basis: 1em;
+.basis1em {
+  background-color: blue;
+  flex-basis: 1em;
 }
 
-.uidz3em{
-    background-color: orange;
-    color: red;
-    width: 3em;
+.uidz3em {
+  background-color: orange;
+  color: red;
+  width: 3em;
 }
 
-.grou2{
-    background-color: green;
-    flex-grow: 2;
+.grou2 {
+  background-color: green;
+  flex-grow: 2;
 }
 
-.grou5{
-    background-color: lightgreen;
-    flex-grow: 5;
+.grou5 {
+  background-color: lightgreen;
+  flex-grow: 5;
 }
 
-.eshrin{
-    background-color: grey;
-    color: yellow;
-    flex-basis: 5em;
-    flex-shrink: 1;
+.eshrin {
+  background-color: grey;
+  color: yellow;
+  flex-basis: 5em;
+  flex-shrink: 1;
 }
-.noeshrin{
-    background-color: darkgrey;
-    color: black;
-    flex-basis: 5em;
-    flex-shrink: 0;
+.noeshrin {
+  background-color: darkgrey;
+  color: black;
+  flex-basis: 5em;
+  flex-shrink: 0;
 }
 
 /*  El primer numero diu si pot creixer el element si te lloc de sobraa
     El segon numero indica si espot fer xicotet
 */
-.p20porcien{
-flex: 0 1 20%;
+.p20porcien {
+  flex: 0 1 20%;
 }
-.p30porcien{
-    background-color: lightpink;
-    flex: 0 1 30%;
+.p30porcien {
+  background-color: lightpink;
+  flex: 0 1 30%;
 }
-.p40porcien{
-    flex: 0 1 40%;
+.p40porcien {
+  flex: 0 1 40%;
 }
-.p10porcien{
-    flex: 0 1 10%;
+.p10porcien {
+  flex: 0 1 10%;
 }
