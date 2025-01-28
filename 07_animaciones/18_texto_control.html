@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script>
+      let expansion = [{ width: "20em" }, { width: "30em" }, { width: "50em" }];
+      let duracion = {
+        duration: 8000,
+        iterations: Infinity,
+      };
+      let animacion;
+
+      document.addEventListener("DOMContentLoaded", () => {
+        let texto = document.getElementById("texto");
+        animacion = texto.animate(expansion, duracion);
+
+        let botPausar = document.getElementById("pausar");
+        botPausar.addEventListener("click", () => {
+          animacion.pause();
+        });
+
+        let botMarchar = document.getElementById("marchar");
+        botMarchar.addEventListener("click", () => {
+          animacion.play();
+        });
+
+        let botReverse = document.getElementById("reverse");
+        botReverse.addEventListener("click", () => {
+          animacion.reverse();
+        });
+
+        let botReiniciar = document.getElementById("reiniciar");
+        botReiniciar.addEventListener("click", () => {
+          animacion.restart();
+        });
+
+        let botFrenar = document.getElementById("frenar");
+        botFrenar.addEventListener("click", () => {
+          animacion.playbackRate = 1;
+        });
+
+        let botAcelerar = document.getElementById("acelerar");
+        botAcelerar.addEventListener("click", () => {
+          animacion.playbackRate= 100;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <button id="pausar">pausar</button>
+      <button id="marchar">marchar</button>
+      <button id="reverse">reverse</button>
+      <button id="reiniciar">reiniciar</button>
+
+      <button id="frenar">frenar</button>
+      <button id="acelerar">acelerar</button>
+    </div>
+    <div
+      id="texto"
+      style="
+        display: block;
+        background-color: orange;
+        border: 5px red solid;
+        padding: 2%;
+      "
+    >
+      How are you? As you know, I am writing (a) (write) to you from Scotland
+      where I am doing (b) (do) my FCT training period. I have been (c) (be)
+      here for eight weeks now and I am very happy because I am learning (d)
+      (learn) a lot of things about hotel management. I am also doing (e)
+      (also/do) an intensive course of English. I have over twenty hours a week
+      so I think I will definitely end up (f) (definitely/end up) speaking
+      really good English.
+    </div>
+    <div style="height: 5vh"></div>
+    <div
+      style="
+        display: block;
+        background-color: orange;
+        border: 5px red solid;
+        padding: 2%;
+        width: 20em;
+      "
+    >
+      How are you? As you know, I am writing (a) (write) to you from Scotland
+      where I am doing (b) (do) my FCT training period. I have been (c) (be)
+      here for eight weeks now and I am very happy because I am learning (d)
+      (learn) a lot of things about hotel management. I am also doing (e)
+      (also/do) an intensive course of English. I have over twenty hours a week
+      so I think I will definitely end up (f) (definitely/end up) speaking
+      really good English.
+    </div>
+  </body>
+</html>
