@@ -1,0 +1,31 @@
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.botton {
+  border: 2px solid red;
+  width: 10em;
+}
+
+.botton:hover {
+  background-color: green;
+}
+
+@keyframes activado {
+  0% {
+    width: 10em;
+  }
+  100% {
+    width: 20em;
+  }
+}
+
+@keyframes desactivado {
+  0% {
+    width: 10em;
+  }
+  100% {
+    width: 5em;
+  }
+}

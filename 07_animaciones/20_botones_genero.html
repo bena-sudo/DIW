@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Generos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="20_botones_genero.css"
+    />
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let bottonH = document.getElementById("hombres");
+        bottonH.addEventListener("click", () => {
+          let botonesM = document.querySelectorAll(".mujeres");
+          botonesM.forEach((element) => {
+            element.style.animation = `desactivado  3s 1`;
+          });
+
+          let botones = document.querySelectorAll(".hombres");
+          botones.forEach((element) => {
+            element.style.animation = `activado  3s 1`;
+          });
+        });
+
+        let bottonM = document.getElementById("mujeres");
+        bottonM.addEventListener("click", () => {});
+      });
+    </script>
+  </head>
+  <body>
+    <div class="contenedor">
+      <div>
+        <button class="botton" id="hombres">hombres</button>
+        <button class="botton" id="mujeres">mujeres</button>
+      </div>
+      <div>
+        <button class="botton hombres" sexo="hombres">Juan</button>
+        <button class="botton hombres" sexo="hombres">Carlos</button>
+
+        <button class="botton mujeres" sexo="mujeres">Joana</button>
+        <button class="botton mujeres" sexo="mujeres">Carla</button>
+      </div>
+    </div>
+  </body>
+</html>
